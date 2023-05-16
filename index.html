@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Semana 9: Forms</title>
+    <style>
+        p>span {
+            color: rgb(255, 70, 199)
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -17,12 +22,13 @@
             <input type="number" name="idade"/>
             <input type="submit" />
             <input type="reset" />
-
         </form>
+        <p></p>
     </main>
     <script>
         const form = document.querySelector("form");
         form.addEventListener ("submit", aoEnviar);
+        const pNome = document.querySelector ("p")
 
         function aoEnviar(evento){
             evento.preventDefault ();
@@ -32,8 +38,10 @@
             const idade = form.idade.valueAsNumber;
             const nomeCompleto = `${nome} ${sobrenome}, ${idade} anos`;
             console.log(nomeCompleto);
-
+            pNome.innerHTML = `ola <span> ${nomeCompleto} </span>!`;
         }
+
+
     </script>
 </body>
 </html>
